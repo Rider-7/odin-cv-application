@@ -8,11 +8,16 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
   ],
+  plugins: ['react', 'react-refresh', 'jsx-a11y', 'react-hooks', 'import'],
   overrides: [
     {
       env: {
         node: true,
+        browser: true,
+        es6: true,
       },
       files: [
         '.eslintrc.{js,cjs}',
@@ -25,9 +30,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
+  settings: { react: { version: 'detect' } },
   rules: {
     'react-refresh/only-export-components': [
       'warn',
