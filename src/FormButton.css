@@ -1,0 +1,17 @@
+.form-button {
+  border-color: var(--outline-colour);
+  color: var(--outline-colour);
+  background-color: transparent;
+
+  box-sizing: border-box;
+  border-style: solid;
+  border-radius: 5px;
+
+  padding: 18px 14px;
+  font-size: 24px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  font-family: inherit;
+}
