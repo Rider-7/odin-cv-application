@@ -1,11 +1,12 @@
 .form-button {
-  border-color: var(--outline-colour);
-  color: var(--outline-colour);
+  border-color: #6780ff;
+  color: #6780ff;
   background-color: transparent;
 
   box-sizing: border-box;
   border-style: solid;
   border-radius: 5px;
+  border-width: 3px;
 
   padding: 18px 14px;
   font-size: 24px;
@@ -14,4 +15,34 @@
 
   font-weight: 600;
   font-family: inherit;
+
+  transition: 300ms;
+}
+
+.form-button:hover {
+  background-color: #6780ff;
+  color: #ffffff;
+
+  transition: 300ms;
+}
+
+.form-button:active {
+  border-color: #2E3D8F;
+  background-color: #2E3D8F;
+  color: #ffffff;
+  
+  transition: 100ms;
+}
+
+.form-button--variant-solid {
+  background-color: #6780ff;
+  color: #ffffff;
+}
+
+.form-button--variant-solid:hover {
+  border-color: #2E3D8F;
+
+  /* border: #2E3D8F solid 3px; */
+
+  transition: 100ms;
 }
