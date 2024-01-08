@@ -1,0 +1,95 @@
+{
+  "1":{
+    "section": "General Information",
+    "fields": [
+      {
+        "title": "First Name",
+        "type": "text",
+        "inputMode": "text",
+        "isTextArea": false
+      },
+      {
+        "title": "Last Name",
+        "type": "text",
+        "inputMode": "text",
+        "isTextArea": false
+      },
+      {
+        "title": "Email",
+        "type": "text",
+        "inputMode": "text",
+        "isTextArea": false
+      },
+      {
+        "title": "Phone Number",
+        "type": "text",
+        "inputMode": "numeric",
+        "isTextArea": false
+      }
+    ]
+  },
+  "2": {
+    "section": "Academic Experience",
+    "fields": [
+      {
+      "title": "University",
+      "type": "text",
+      "inputMode": "text",
+      "isTextArea": false
+      },
+      {
+        "title": "Major",
+        "type": "text",
+        "inputMode": "text",
+        "isTextArea": false
+      },
+      {
+        "title": "Graduation Date",
+        "type": "date",
+        "inputMode": "numeric",
+        "isTextArea": false
+      },
+      {
+        "title": "GPA",
+        "type": "text",
+        "inputMode": "numeric",
+        "isTextArea": false
+      }
+    ]
+  },
+  "3": {
+    "section": "Work Experience",
+    "fields": [
+      {
+      "title": "Company",
+      "type": "text",
+      "inputMode": "text",
+      "isTextArea": false
+      },
+      {
+        "title": "Position Title",
+        "type": "text",
+        "inputMode": "text",
+        "isTextArea": false
+      },
+      {
+        "title": "Start Date",
+        "type": "date",
+        "inputMode": "numeric",
+        "isTextArea": false
+      },
+      {
+        "title": "End Date",
+        "type": "date",
+        "inputMode": "numeric",
+        "isTextArea": false
+      },
+      {
+        "title": "Responsibilities",
+        "type": "",
+        "inputMode": "",
+        "isTextArea": true
+      }
+    ]
+  }
+}

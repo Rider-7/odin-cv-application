@@ -3,6 +3,7 @@ import ProgressBar from './ProgressBar';
 import FormInput from './FormInput';
 import FormButton from './FormButton';
 import './CVForm.css';
+import cv from './cv-sections.json';
 
 export default function CVForm() {
   const steps = 4;
@@ -31,40 +32,27 @@ export default function CVForm() {
   );
 }
 
-// TODO: Make this component dynamic.
 function Section({ currentStep }) {
-  switch (currentStep) {
-    case 1:
-      return (
-        <div className="cv-form__section">
-          <FormInput title="First Name" type="text" />
-          <FormInput title="Last Name" type="text" />
-          <FormInput title="Email" type="email" />
-          <FormInput title="Phone Number" type="text" inputMode="numeric" />
-        </div>
-      );
-    case 2:
-      return (
-        <div className="cv-form__section">
-          <FormInput title="University" type="text" />
-          <FormInput title="Major" type="text" />
-          <FormInput title="Graduation Date" type="date" />
-          <FormInput title="GPA" type="text" inputMode='numeric' />
-        </div>
-      );
-    case 3:
-      return (
-        <div className="cv-form__section">
-          <FormInput title="Company" type="text" />
-          <FormInput title="Position Title" type="text" />
-          <FormInput title="Start Date" type="date" />
-          <FormInput title="End Date" type="date" />
-          <FormInput title="Responsibilites" isTextArea />
-      </div>
-      );
-    default:
-      return <span>ERROR</span>;
+  // Bound checking.
+  if (currentStep > Object.keys(cv).length) {
+    return <div className="cv-form__section" />;
   }
+
+  const { fields } = cv[currentStep];
+
+  return (
+    <div className="cv-form__section">
+      {fields.map((field) => (
+        <FormInput
+          key={field.title}
+          title={field.title}
+          type={field.type}
+          inputMode={field.inputMode}
+          isTextArea={field.isTextArea}
+        />
+      ))}
+    </div>
+  );
 }
 
 function Navigation({ onClickDelegator }) {
