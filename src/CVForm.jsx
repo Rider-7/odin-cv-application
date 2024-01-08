@@ -9,7 +9,7 @@ export default function CVForm() {
   const steps = 4;
   const [currentStep, setCurrentStep] = useState(1);
 
-  function onClickDelegator(e) {
+  function navDelegator(e) {
     switch (e.target.value) {
       case 'next':
         if (currentStep < steps) setCurrentStep(currentStep + 1);
@@ -27,7 +27,7 @@ export default function CVForm() {
       <h1 className="cv-form__header">{cv[currentStep].section}</h1>
       <ProgressBar steps={steps} currentStep={currentStep} />
       <Section currentStep={currentStep} />
-      <Navigation onClickDelegator={onClickDelegator} currentStep={currentStep} />
+      <Navigation onClickDelegator={navDelegator} currentStep={currentStep} />
     </div>
   );
 }
