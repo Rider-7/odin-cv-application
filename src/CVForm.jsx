@@ -24,7 +24,7 @@ export default function CVForm() {
 
   return (
     <div className="cv-form">
-      <h1 className="cv-form__header">General Information</h1>
+      <h1 className="cv-form__header">{cv[currentStep].section}</h1>
       <ProgressBar steps={steps} currentStep={currentStep} />
       <Section currentStep={currentStep} />
       <Navigation onClickDelegator={onClickDelegator} currentStep={currentStep} />
