@@ -52,6 +52,16 @@ function Section({ currentStep }) {
           <FormInput title="GPA" type="text" inputMode='numeric' />
         </div>
       );
+    case 3:
+      return (
+        <div className="cv-form__section">
+          <FormInput title="Company" type="text" />
+          <FormInput title="Position Title" type="text" />
+          <FormInput title="Start Date" type="date" />
+          <FormInput title="End Date" type="date" />
+          <FormInput title="Responsibilites" isTextArea />
+      </div>
+      );
     default:
       return <span>ERROR</span>;
   }
