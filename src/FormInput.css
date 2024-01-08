@@ -4,6 +4,9 @@
 }
 
 .form-input__title {
+  padding: 0;
+  margin: 0;
+  
   color: #2E3D8F;
 
   font-size: 20px;
