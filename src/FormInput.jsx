@@ -2,9 +2,15 @@ import { useState } from 'react';
 import './FormInput.css';
 
 export default function FormInput({ title = '{title}', type = 'text', isTextArea = false, isReadOnly = false, inputMode = "text" }) {
-  let inputClassName = 'form-input__input';
-  if (isReadOnly) inputClassName += ' form-input__input--read-only';
-  if (isTextArea) inputClassName += ' form-input__input--text-area';
+  let subClassName = 'form-input__input';
+  let mainClassName = 'form-input';
+  const titleClassName = 'form-input__title';
+
+  if (isReadOnly) subClassName += ' form-input__input--read-only';
+  if (isTextArea) {
+    mainClassName += ' form-input--text-area';
+    subClassName += ' form-input__input--text-area';
+  }
 
   const [value, setValue] = useState('');
 
@@ -14,7 +20,7 @@ export default function FormInput({ title = '{title}', type = 'text', isTextArea
 
   const TextArea = (
     <textarea
-      className={inputClassName}
+      className={subClassName}
       value={value}
       onChange={handleOnChange}
       disabled={isReadOnly}
@@ -23,7 +29,7 @@ export default function FormInput({ title = '{title}', type = 'text', isTextArea
 
   const Input = (
     <input
-      className={inputClassName}
+      className={subClassName}
       type={type}
       value={value}
       onChange={handleOnChange}
@@ -33,8 +39,8 @@ export default function FormInput({ title = '{title}', type = 'text', isTextArea
   );
 
   return (
-    <div className="form-input">
-      <h2 className="form-input__title">{title}</h2>
+    <div className={mainClassName}>
+      <h2 className={titleClassName}>{title}</h2>
       {isTextArea ? TextArea : Input}
     </div>
   );

@@ -1,12 +1,11 @@
-.form-input {
-  display: flex;
-  flex-direction: column;
+.form-input--text-area {
+  grid-column: 1 / -1;
 }
 
 .form-input__title {
   padding: 0;
   margin: 0;
-  
+
   color: #2E3D8F;
 
   font-size: 20px;
@@ -46,3 +45,5 @@
   width: 500px;
   height: 100px;
 }
+
+/* refactor classNames and update textarea variant CSS */
