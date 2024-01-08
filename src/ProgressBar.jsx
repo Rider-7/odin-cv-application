@@ -1,6 +1,6 @@
 import './ProgressBar.css';
 
-export default function ProgressBar({ steps = 4, currentStep = 2 }) {
+export default function ProgressBar({ steps, currentStep }) {
   return (
     <div className="progress-bar">
       <Segments steps={steps} currentStep={currentStep} />
@@ -29,6 +29,6 @@ function Subtitle(props) {
   const { steps, currentStep } = props;
   const subtitle = `Step ${currentStep} of ${steps}`;
   return (
-    <text className="progress-bar__subtitle">{subtitle}</text>
+    <span className="progress-bar__subtitle">{subtitle}</span>
   );
 }
