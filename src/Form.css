@@ -1,4 +1,4 @@
-.cv-form {
+.form {
   
   box-sizing: border-box;
   border-radius: 10px;
@@ -9,7 +9,7 @@
   padding: 30px;
 }
 
-.cv-form__header {
+.form__header {
   margin: 0px;
   padding: 0px;
   margin-bottom: 18px;
@@ -23,7 +23,7 @@
   line-height: 125%; /* 30px */
 }
 
-.cv-form__section {
+.form__section {
   margin: 0px;
   padding: 0px;
   margin-top: 18px;
@@ -34,12 +34,12 @@
   gap: 16px 36px;
 }
 
-.cv-form__nav-main {
+.form__nav-main {
   display: flex;
   justify-content: space-between;
 }
 
-.cv-form__nav-left, .cv-form__nav-right {
+.form__nav-left, .form__nav-right {
   display: flex;
   justify-content: center;
   gap: 16px;
