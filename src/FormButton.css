@@ -17,6 +17,8 @@
   font-family: inherit;
 
   transition: 300ms;
+
+  user-select: none;
 }
 
 .form-button:hover {
