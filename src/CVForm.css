@@ -1,0 +1,46 @@
+.cv-form {
+  
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #D6DDFF;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  padding: 30px;
+}
+
+.cv-form__header {
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 18px;
+
+  color: #2E3D8F;
+
+  text-align: left;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%; /* 30px */
+}
+
+.cv-form__section {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 18px;
+  margin-bottom: 64px;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 16px 36px;
+}
+
+.cv-form__nav-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cv-form__nav-left, .cv-form__nav-right {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
