@@ -1,6 +1,6 @@
 import './FormButton.css';
 
-export default function FormButton({ value, onClick, text = "Button", variant }) {
+export default function FormButton({ value, onClick, text = "Button", variant, isDisabled = false }) {
   let className = 'form-button';
   if (variant === 'solid') className += ' form-button--variant-solid';
 
@@ -10,6 +10,7 @@ export default function FormButton({ value, onClick, text = "Button", variant })
       type="button"
       onClick={onClick}
       value={value}
+      disabled={isDisabled}
     >
       {text}
     </button>

@@ -21,14 +21,20 @@
   user-select: none;
 }
 
-.form-button:hover {
+.form-button:disabled {
+  border-color: hsla(230, 100%, 70%, 0.30);
+  color: hsla(230, 100%, 70%, 0.30);
+  cursor: default;
+}
+
+.form-button:hover:enabled {
   background-color: #6780ff;
   color: #ffffff;
 
   transition: 300ms;
 }
 
-.form-button:active {
+.form-button:active:enabled {
   border-color: #2E3D8F;
   background-color: #2E3D8F;
   color: #ffffff;

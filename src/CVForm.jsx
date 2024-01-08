@@ -27,7 +27,7 @@ export default function CVForm() {
       <h1 className="cv-form__header">General Information</h1>
       <ProgressBar steps={steps} currentStep={currentStep} />
       <Section currentStep={currentStep} />
-      <Navigation onClickDelegator={onClickDelegator} />
+      <Navigation onClickDelegator={onClickDelegator} currentStep={currentStep} />
     </div>
   );
 }
@@ -55,14 +55,14 @@ function Section({ currentStep }) {
   );
 }
 
-function Navigation({ onClickDelegator }) {
+function Navigation({ onClickDelegator, currentStep }) {
   return (
     <div className="cv-form__nav-main">
       <div className="cv-form__nav-left">
         <FormButton value="save_exit" text="Save & Exit" onClick={onClickDelegator} />
       </div>
       <div className="cv-form__nav-right">
-        <FormButton value="prev" text="Previous" onClick={onClickDelegator} />
+        <FormButton value="prev" text="Previous" onClick={onClickDelegator} isDisabled={currentStep <= 1} />
         <FormButton value="next" text="Next" onClick={onClickDelegator} />
       </div>
     </div>
