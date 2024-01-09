@@ -3,11 +3,22 @@ import ProgressBar from './ProgressBar';
 import FormInput from './FormInput';
 import FormButton from './FormButton';
 import './Form.css';
-import cv from './cv-sections.json';
+import sections from './form-data.json';
 
 export default function Form() {
-  const steps = 4;
   const [currentStep, setCurrentStep] = useState(1);
+  const [userData, setUserData] = useState({});
+
+  const sectionName = sections[currentStep].name;
+  const steps = Object.keys(sections).length;
+  const currentFields = sections[currentStep].fields;
+
+  function inputHandler(e) {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+  }
 
   function navDelegator(e) {
     switch (e.target.value) {
@@ -24,31 +35,26 @@ export default function Form() {
 
   return (
     <div className="form">
-      <h1 className="form__header">{cv[currentStep].section}</h1>
+      <h1 className="form__header">{sectionName}</h1>
       <ProgressBar steps={steps} currentStep={currentStep} />
-      <Section currentStep={currentStep} />
+      <Section fields={currentFields} userData={userData} inputHandler={inputHandler} />
       <Navigation onClickDelegator={navDelegator} currentStep={currentStep} />
     </div>
   );
 }
 
-function Section({ currentStep }) {
-  // Bound checking.
-  if (currentStep > Object.keys(cv).length) {
-    return <div className="form__section" />;
-  }
-
-  const { fields } = cv[currentStep];
-
+function Section({ fields, userData, inputHandler }) {
   return (
     <div className="form__section">
       {fields.map((field) => (
         <FormInput
           key={field.title}
           title={field.title}
-          type={field.type}
-          inputMode={field.inputMode}
-          isTextArea={field.isTextArea}
+          type={field.config.type}
+          inputMode={field.config.inputMode}
+          isTextArea={field.config.isTextArea}
+          value={userData[field.title] ? userData[field.title] : ''}
+          onChange={inputHandler}
         />
       ))}
     </div>
@@ -68,3 +74,9 @@ function Navigation({ onClickDelegator, currentStep }) {
     </div>
   );
 }
+
+// function Review({ userData, }) {
+//   Array.from(sections).forEach(section => {
+//     <h1 className="form__sub-header">{sectionName}</h1>
+//   });
+// }

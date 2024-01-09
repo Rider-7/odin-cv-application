@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './FormInput.css';
 
-export default function FormInput({ title = '{title}', type = 'text', isTextArea = false, isReadOnly = false, inputMode = "text" }) {
+export default function FormInput({ title = '{title}', type = 'text', isTextArea = false, isReadOnly = false, inputMode = "text", onChange, value }) {
   let subClassName = 'form-input__input';
   let mainClassName = 'form-input';
   const titleClassName = 'form-input__title';
@@ -12,27 +12,23 @@ export default function FormInput({ title = '{title}', type = 'text', isTextArea
     subClassName += ' form-input__input--text-area';
   }
 
-  const [value, setValue] = useState('');
-
-  function handleOnChange(e) {
-    setValue(e.target.value);
-  }
-
   const TextArea = (
     <textarea
+      name={title}
       className={subClassName}
       value={value}
-      onChange={handleOnChange}
+      onChange={onChange}
       disabled={isReadOnly}
     />
   );
 
   const Input = (
     <input
+      name={title}
       className={subClassName}
       type={type}
       value={value}
-      onChange={handleOnChange}
+      onChange={onChange}
       disabled={isReadOnly}
       inputMode={inputMode}
     />
