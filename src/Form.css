@@ -57,6 +57,16 @@
   margin-top: 20px;
 }
 
+.form__hr {
+  padding: 0px;
+  margin-block: 30px;
+  border-color: #D6DDFF;
+  border-style: solid;
+  border-width: 0px;
+  border-top-width: 2px;
+  border-radius: 5px;
+}
+
 .form__container--centre{
   display:flex;
   justify-content: center;

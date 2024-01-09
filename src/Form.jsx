@@ -93,6 +93,8 @@ function Navigation({ onClickDelegator, currentStep }) {
 function Review({ userData }) {
   const sectionsArr = Object.values(sections);
   const Body = [];
+
+  let hrCounter = 0;
   sectionsArr.forEach((section) => {
     const jsx = (
       <>
@@ -104,8 +106,10 @@ function Review({ userData }) {
           isReadOnly
         />
         <div className="form__container--centre"><FormButton variant="solid" value={section.name} text="Edit Section" /></div>
+        {hrCounter < sectionsArr.length - 1 && <hr className="form__hr" />}
       </>
     );
+    hrCounter += 1;
     Body.push(jsx);
   });
 
