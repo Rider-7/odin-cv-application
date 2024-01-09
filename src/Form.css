@@ -9,7 +9,7 @@
   padding: 30px;
 }
 
-.form__header {
+.form__header, .form_sub-header {
   margin: 0px;
   padding: 0px;
   margin-bottom: 18px;
@@ -43,4 +43,9 @@
   display: flex;
   justify-content: center;
   gap: 16px;
+}
+
+.progress-bar {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }

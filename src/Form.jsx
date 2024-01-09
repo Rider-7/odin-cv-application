@@ -9,9 +9,22 @@ export default function Form() {
   const [currentStep, setCurrentStep] = useState(1);
   const [userData, setUserData] = useState({});
 
-  const sectionName = sections[currentStep].name;
   const steps = Object.keys(sections).length;
-  const currentFields = sections[currentStep].fields;
+  const totalSteps = steps + 1;
+
+  let sectionName;
+  let currentFields;
+  let Body;
+
+  if (currentStep <= steps) {
+    sectionName = sections[currentStep].name;
+    currentFields = sections[currentStep].fields;
+    Body = <Section fields={currentFields} userData={userData} inputHandler={inputHandler} />;
+  } else {
+    sectionName = 'Review';
+    Body = <Review userData={userData} />;
+  }
+
 
   function inputHandler(e) {
     setUserData({
@@ -22,8 +35,9 @@ export default function Form() {
 
   function navDelegator(e) {
     switch (e.target.value) {
+      case 'review':
       case 'next':
-        if (currentStep < steps) setCurrentStep(currentStep + 1);
+        if (currentStep <= steps) setCurrentStep(currentStep + 1);
         break;
       case 'prev':
         if (currentStep > 1) setCurrentStep(currentStep - 1);
@@ -36,14 +50,14 @@ export default function Form() {
   return (
     <div className="form">
       <h1 className="form__header">{sectionName}</h1>
-      <ProgressBar steps={steps} currentStep={currentStep} />
-      <Section fields={currentFields} userData={userData} inputHandler={inputHandler} />
+      <ProgressBar steps={totalSteps} currentStep={currentStep} />
+      {Body}
       <Navigation onClickDelegator={navDelegator} currentStep={currentStep} />
     </div>
   );
 }
 
-function Section({ fields, userData, inputHandler }) {
+function Section({ fields, userData, inputHandler, isReadOnly = false }) {
   return (
     <div className="form__section">
       {fields.map((field) => (
@@ -55,6 +69,7 @@ function Section({ fields, userData, inputHandler }) {
           isTextArea={field.config.isTextArea}
           value={userData[field.title] ? userData[field.title] : ''}
           onChange={inputHandler}
+          isReadOnly={isReadOnly}
         />
       ))}
     </div>
@@ -75,8 +90,27 @@ function Navigation({ onClickDelegator, currentStep }) {
   );
 }
 
-// function Review({ userData, }) {
-//   Array.from(sections).forEach(section => {
-//     <h1 className="form__sub-header">{sectionName}</h1>
-//   });
-// }
+function Review({ userData }) {
+  const sectionsArr = Object.values(sections);
+  const Body = [];
+  sectionsArr.forEach((section) => {
+    const jsx = (
+      <>
+        <h2 className="form_sub-header">{section.name}</h2>
+        <Section
+          key={section.name}
+          fields={section.fields}
+          userData={userData}
+          isReadOnly
+        />
+      </>
+    );
+    Body.push(jsx);
+  });
+
+  return (
+    <div>
+      {Body}
+    </div>
+  );
+}
