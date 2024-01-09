@@ -12,7 +12,7 @@
 .form__header, .form_sub-header {
   margin: 0px;
   padding: 0px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 
   color: #2E3D8F;
 
@@ -23,11 +23,16 @@
   line-height: 125%; /* 30px */
 }
 
+.form_sub-header {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 .form__section {
   margin: 0px;
   padding: 0px;
-  margin-top: 18px;
-  margin-bottom: 64px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   display: grid;
   grid-template-columns: auto auto;
@@ -35,6 +40,8 @@
 }
 
 .form__nav-main {
+  margin-top: 100px;
+
   display: flex;
   justify-content: space-between;
 }
@@ -45,7 +52,22 @@
   gap: 16px;
 }
 
+.form__review {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.form__container--centre{
+  display:flex;
+  justify-content: center;
+}
+
 .progress-bar {
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.form-button--variant-solid {
+  padding: 8px 24px;
+  font-size: 20px;
 }

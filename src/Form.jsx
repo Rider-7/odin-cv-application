@@ -103,13 +103,14 @@ function Review({ userData }) {
           userData={userData}
           isReadOnly
         />
+        <div className="form__container--centre"><FormButton variant="solid" value={section.name} text="Edit Section" /></div>
       </>
     );
     Body.push(jsx);
   });
 
   return (
-    <div>
+    <div className="form__review">
       {Body}
     </div>
   );
