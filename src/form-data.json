@@ -1,0 +1,121 @@
+{
+  "1": {
+    "name": "General Information",
+    "fields": [
+      {
+        "title": "First Name",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Last Name",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Email",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Phone Number",
+        "config": {
+          "type": "text",
+          "inputMode": "numeric",
+          "isTextArea": false
+        }
+      }
+    ]
+  },
+  "2": {
+    "name": "Academic Experience",
+    "fields": [
+      {
+        "title": "University",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Major",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Graduation Date",
+        "config": {
+          "type": "date",
+          "inputMode": "numeric",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "GPA",
+        "config": {
+          "type": "text",
+          "inputMode": "numeric",
+          "isTextArea": false
+        }
+      }
+    ]
+  },
+  "3": {
+    "name": "Work Experience",
+    "fields": [
+      {
+        "title": "Company",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Position Title",
+        "config": {
+          "type": "text",
+          "inputMode": "text",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Start Date",
+        "config": {
+          "type": "date",
+          "inputMode": "numeric",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "End Date",
+        "config": {
+          "type": "date",
+          "inputMode": "numeric",
+          "isTextArea": false
+        }
+      },
+      {
+        "title": "Responsibilities",
+        "config": {
+          "type": null,
+          "inputMode": null,
+          "isTextArea": true
+        }
+      }
+    ]
+  }
+}
