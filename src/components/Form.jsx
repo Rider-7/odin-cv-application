@@ -19,6 +19,10 @@ export default function Form() {
     });
   }
 
+  function jumpHandler(e) {
+    setCurrentStep(parseInt(e.target.dataset.step, 10));
+  }
+
   function navDelegator(e) {
     switch (e.target.value) {
       case 'review':
@@ -48,7 +52,7 @@ export default function Form() {
     Body = <Section fields={currentFields} userData={userData} inputHandler={inputHandler} />;
   } else {
     sectionName = 'Review';
-    Body = <Review userData={userData} />;
+    Body = <Review userData={userData} jumpHandler={jumpHandler} />;
   }
 
   return (
@@ -106,11 +110,11 @@ function Navigation({ onClickDelegator, currentStep, steps }) {
   );
 }
 
-function Review({ userData }) {
+function Review({ userData, jumpHandler }) {
   const sectionsArr = Object.values(sections);
   const Body = [];
 
-  let hrCounter = 0;
+  let counter = 0; // Used for 'hr' HTML element and 'data-step' attribute.
   sectionsArr.forEach((section) => {
     const jsx = (
       <div key={section.name} className="form__review-section">
@@ -120,11 +124,19 @@ function Review({ userData }) {
           userData={userData}
           isReadOnly
         />
-        <div className="form__container--centre"><FormButton variant="solid" value={section.name} text="Edit Section" /></div>
-        {hrCounter < sectionsArr.length - 1 && <hr className="form__hr" />}
+        <div className="form__container--centre">
+          <FormButton
+            variant="solid"
+            value={section.name}
+            text="Edit Section"
+            step={counter + 1}
+            onClick={jumpHandler}
+          />
+        </div>
+        {counter < sectionsArr.length - 1 && <hr className="form__hr" />}
       </div>
     );
-    hrCounter += 1;
+    counter += 1;
     Body.push(jsx);
   });
 

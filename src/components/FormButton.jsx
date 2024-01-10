@@ -7,6 +7,7 @@ export default function FormButton(props) {
     text = 'Button',
     variant,
     isDisabled = false,
+    step,
   } = props;
 
   let className = 'form-button';
@@ -19,6 +20,7 @@ export default function FormButton(props) {
       onClick={onClick}
       value={value}
       disabled={isDisabled}
+      data-step={step}
     >
       {text}
     </button>
