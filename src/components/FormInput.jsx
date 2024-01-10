@@ -1,6 +1,16 @@
 import '../styles/FormInput.css';
 
-export default function FormInput({ title = '{title}', type = 'text', isTextArea = false, isReadOnly = false, inputMode = "text", onChange, value }) {
+export default function FormInput(props) {
+  const {
+    title = '{title}',
+    type = 'text',
+    isTextArea = false,
+    isReadOnly = false,
+    inputMode = 'text',
+    onChange,
+    value,
+  } = props;
+
   let subClassName = 'form-input__input';
   let mainClassName = 'form-input';
   const titleClassName = 'form-input__title';

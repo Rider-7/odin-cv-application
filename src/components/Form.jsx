@@ -12,20 +12,6 @@ export default function Form() {
   const steps = Object.keys(sections).length;
   const totalSteps = steps + 1;
 
-  let sectionName;
-  let currentFields;
-  let Body;
-
-  if (currentStep <= steps) {
-    sectionName = sections[currentStep].name;
-    currentFields = sections[currentStep].fields;
-    Body = <Section fields={currentFields} userData={userData} inputHandler={inputHandler} />;
-  } else {
-    sectionName = 'Review';
-    Body = <Review userData={userData} />;
-  }
-
-
   function inputHandler(e) {
     setUserData({
       ...userData,
@@ -47,6 +33,18 @@ export default function Form() {
     }
   }
 
+  let currentFields;
+  let Body;
+  let sectionName;
+  if (currentStep <= steps) {
+    sectionName = sections[currentStep].name;
+    currentFields = sections[currentStep].fields;
+    Body = <Section fields={currentFields} userData={userData} inputHandler={inputHandler} />;
+  } else {
+    sectionName = 'Review';
+    Body = <Review userData={userData} />;
+  }
+
   return (
     <div className="form">
       <h1 className="form__header">{sectionName}</h1>
@@ -57,7 +55,14 @@ export default function Form() {
   );
 }
 
-function Section({ fields, userData, inputHandler, isReadOnly = false }) {
+function Section(props) {
+  const {
+    fields,
+    userData,
+    inputHandler,
+    isReadOnly = false,
+  } = props;
+
   return (
     <div className="form__section">
       {fields.map((field) => (

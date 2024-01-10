@@ -1,6 +1,14 @@
 import '../styles/FormButton.css';
 
-export default function FormButton({ value, onClick, text = "Button", variant, isDisabled = false }) {
+export default function FormButton(props) {
+  const {
+    value,
+    onClick,
+    text = 'Button',
+    variant,
+    isDisabled = false,
+  } = props;
+
   let className = 'form-button';
   if (variant === 'solid') className += ' form-button--variant-solid';
 
