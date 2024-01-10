@@ -25,7 +25,7 @@
 }
 
 .progress-bar__segment--complete {
-  background-color: var(--outline-colour);
+  background-color: #6780FF;
 }
 
 .progress-bar__subtitle {

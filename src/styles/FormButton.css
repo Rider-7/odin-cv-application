@@ -49,8 +49,5 @@
 
 .form-button--variant-solid:hover {
   border-color: #2E3D8F;
-
-  /* border: #2E3D8F solid 3px; */
-
   transition: 100ms;
 }
