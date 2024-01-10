@@ -1,4 +1,4 @@
-import './FormButton.css';
+import '../styles/FormButton.css';
 
 export default function FormButton({ value, onClick, text = "Button", variant, isDisabled = false }) {
   let className = 'form-button';

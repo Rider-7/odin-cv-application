@@ -2,8 +2,8 @@ import { useState } from 'react';
 import ProgressBar from './ProgressBar';
 import FormInput from './FormInput';
 import FormButton from './FormButton';
-import './Form.css';
-import sections from './form-data.json';
+import '../styles/Form.css';
+import sections from '../form-data.json';
 
 export default function Form() {
   const [currentStep, setCurrentStep] = useState(1);

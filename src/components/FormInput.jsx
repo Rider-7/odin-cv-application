@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import './FormInput.css';
+import '../styles/FormInput.css';
 
 export default function FormInput({ title = '{title}', type = 'text', isTextArea = false, isReadOnly = false, inputMode = "text", onChange, value }) {
   let subClassName = 'form-input__input';
