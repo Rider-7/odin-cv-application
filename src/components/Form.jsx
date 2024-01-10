@@ -25,8 +25,14 @@ export default function Form() {
       case 'next':
         if (currentStep <= steps) setCurrentStep(currentStep + 1);
         break;
+      case 'submit':
+        // Insert submit function here.
+        break;
       case 'prev':
         if (currentStep > 1) setCurrentStep(currentStep - 1);
+        break;
+      case 'save_exit':
+        // Insert save function here.
         break;
       default:
         throw new Error('navController error!');
@@ -50,7 +56,7 @@ export default function Form() {
       <h1 className="form__header">{sectionName}</h1>
       <ProgressBar steps={totalSteps} currentStep={currentStep} />
       {Body}
-      <Navigation onClickDelegator={navDelegator} currentStep={currentStep} />
+      <Navigation onClickDelegator={navDelegator} currentStep={currentStep} steps={steps} />
     </div>
   );
 }
@@ -81,7 +87,12 @@ function Section(props) {
   );
 }
 
-function Navigation({ onClickDelegator, currentStep }) {
+function Navigation({ onClickDelegator, currentStep, steps }) {
+  let nextBtn;
+  if (currentStep < steps) nextBtn = <FormButton value="next" text="Next" onClick={onClickDelegator} />;
+  else if (currentStep === steps) nextBtn = <FormButton value="review" text="Review" onClick={onClickDelegator} />;
+  else nextBtn = <FormButton value="submit" text="Submit" onClick={onClickDelegator} />;
+
   return (
     <div className="form__nav-main">
       <div className="form__nav-left">
@@ -89,7 +100,7 @@ function Navigation({ onClickDelegator, currentStep }) {
       </div>
       <div className="form__nav-right">
         <FormButton value="prev" text="Previous" onClick={onClickDelegator} isDisabled={currentStep <= 1} />
-        <FormButton value="next" text="Next" onClick={onClickDelegator} />
+        {nextBtn}
       </div>
     </div>
   );
