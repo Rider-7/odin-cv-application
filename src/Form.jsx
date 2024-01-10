@@ -97,17 +97,16 @@ function Review({ userData }) {
   let hrCounter = 0;
   sectionsArr.forEach((section) => {
     const jsx = (
-      <>
-        <h2 className="form_sub-header">{section.name}</h2>
+      <div key={section.name} className="form__review-section">
+        <h2 className="form__sub-header">{section.name}</h2>
         <Section
-          key={section.name}
           fields={section.fields}
           userData={userData}
           isReadOnly
         />
         <div className="form__container--centre"><FormButton variant="solid" value={section.name} text="Edit Section" /></div>
         {hrCounter < sectionsArr.length - 1 && <hr className="form__hr" />}
-      </>
+      </div>
     );
     hrCounter += 1;
     Body.push(jsx);

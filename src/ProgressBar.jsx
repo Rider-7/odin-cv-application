@@ -14,8 +14,8 @@ function Segments(props) {
   const segments = [];
   for (let i = 0; i < steps; i += 1) {
     const segment = i < currentStep
-      ? <div className="progress-bar__segment progress-bar__segment--complete" />
-      : <div className="progress-bar__segment" />;
+      ? <div key={i} className="progress-bar__segment progress-bar__segment--complete" />
+      : <div key={i} className="progress-bar__segment" />;
     segments.push(segment);
   }
   return (
